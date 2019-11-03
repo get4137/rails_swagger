@@ -1,0 +1,84 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/posts": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "tags": [
+          "context_tag",
+          "path_tag",
+          "operation_tag"
+        ],
+        "summary": "fetch list",
+        "produces": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "responses": {
+          "201": {
+            "description": "successfully created",
+            "examples": {
+              "application/json; charset=utf-8": "{\"id\":1,\"title\":\"asdf\",\"body\":\"blah\",\"created_at\":\"2019-11-03T19:55:33.201Z\",\"updated_at\":\"2019-11-03T19:55:33.201Z\",\"url\":\"http://www.example.com/posts/1.json\"}"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "foo": "bar"
+            }
+          }
+        ],
+        "tags": [
+          "context_tag",
+          "path_tag"
+        ],
+        "summary": "create",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/posts/{post_id}": {
+      "parameters": [
+        {
+          "name": "post_id",
+          "in": "path",
+          "type": "integer",
+          "required": true
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json; charset=utf-8": "{\"id\":1,\"title\":null,\"body\":null,\"created_at\":\"2019-11-03T19:55:33.208Z\",\"updated_at\":\"2019-11-03T19:55:33.208Z\",\"url\":\"http://www.example.com/posts/1.json\"}"
+            },
+            "description": "success"
+          }
+        },
+        "tags": [
+          "context_tag"
+        ],
+        "summary": "fetch item",
+        "produces": [
+          "application/json"
+        ]
+      }
+    }
+  }
+}
